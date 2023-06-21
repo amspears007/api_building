@@ -6,4 +6,16 @@ class Api::V1::BooksController < ApplicationController
   def show
     render json: Book.find(params[:id])
   end
+
+  def create
+    # require 'pry'; binding.pry
+    render json: Book.create(book_params)
+  end
+  
+  private
+
+  def book_params
+    # require 'pry'; binding.pry
+    params.require(:book).permit(:title, :author, :genre, :summary, :number_sold )
+  end
 end
