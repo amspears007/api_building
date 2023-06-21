@@ -7,5 +7,7 @@ describe "Books API"  do
     get "/api/v1/books"
 
     expect(response).to be_successful
+
+    books = JSON.parse(response.body)
   end
 end
