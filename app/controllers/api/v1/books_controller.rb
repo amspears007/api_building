@@ -15,10 +15,13 @@ class Api::V1::BooksController < ApplicationController
     render json: Book.update(params[:id], book_params)
   end
   
+  def destroy
+    Book.delete(params[:id])
+  end
+  
   private
 
   def book_params
-    # require 'pry'; binding.pry
     params.require(:book).permit(:title, :author, :genre, :summary, :number_sold )
   end
 end
