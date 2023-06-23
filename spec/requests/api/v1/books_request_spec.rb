@@ -8,7 +8,6 @@ describe "Books API"  do
     expect(response).to be_successful
     
     books = JSON.parse(response.body, symbolize_names: true)
-    # require 'pry'; binding.pry
 
     expect(books.count).to eq(3)
     books.each do |book|
